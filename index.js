@@ -27,7 +27,13 @@ const createWalker = (startId, nodes, edges, report, cb) => {
 		})
 	}
 
-	s.once('error', cb)
+	const onError = (err) => {
+		if (err.isHafasError) return
+		cb(err)
+		s.removeListener('error', onError)
+	}
+	s.on('error', onError)
+
 	s.once('end', cb)
 	s.on('stats', report)
 	s.on('data', onNode)
