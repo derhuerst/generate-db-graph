@@ -1,0 +1,31 @@
+{
+	"preferGlobal": true,
+	"name": "generate-db-graph",
+	"description": "Generate a JSON graph of Deutsch Bahn public transport.",
+	"version": "0.1.0",
+	"files": [
+		"cli.js",
+		"index.js"
+	],
+	"bin": {
+		"generate-db-graph": "./cli.js"
+	},
+	"keywords": [
+		"db",
+		"deutsche bahn",
+		"public transport",
+		"graph",
+		"jgf",
+		"json"
+	],
+	"author": "Jannis R <mail@jannisr.de>",
+	"homepage": "https://github.com/derhuerst/generate-db-graph",
+	"repository": "derhuerst/generate-db-graph",
+	"bugs": "https://github.com/derhuerst/generate-db-graph/issues",
+	"license": "ISC",
+	"engines": {
+		"node": ">=6"
+	},
+	"dependencies": {
+	}
+}
