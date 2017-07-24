@@ -27,6 +27,33 @@ Examples:
 
 This tool generates data in the [JSON Graph Format](https://github.com/jsongraph/json-graph-specification/blob/master/README.rst#json-graph-specification). Note that instead of storing all nodes and edges in one JSON file, **it will create `nodes.ndjson` and `edges.ndjson`. These are [ndjson](http://ndjson.org)-encoded lists of all nodes and edges**, respectively.
 
+A node from `nodes.ndjson` looks like this:
+
+```json
+{
+	"id": "8013487",
+	"label": "Oranienburg",
+	"metadata": {
+		"latitude": 52.754697,
+		"longitude": 13.249084
+	}
+}
+```
+
+An edge from `edges.ndjson` looks like this:
+
+```json
+{
+	"source": "8081722",
+	"target": "8013487",
+	"relation": "suburban",
+	"metadata": {
+		"line": "S 1",
+		"time": 180000
+	}
+}
+```
+
 
 ## Contributing
 
