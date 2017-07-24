@@ -5,6 +5,8 @@ const minimist = require('minimist')
 const {stringify} = require('ndjson')
 const fs = require('fs')
 const path = require('path')
+const {isatty} = require('tty')
+const differ = require('ansi-diff-stream')
 
 const pkg = require('./package.json')
 const walk = require('.')
@@ -47,7 +49,22 @@ edges
 .pipe(fs.createWriteStream('edges.ndjson'))
 .on('error', showError)
 
-walk(startId, nodes, edges, (err) => {
+const clearReports = isatty(process.stderr.fd)
+let reporter = process.stderr
+if (clearReports) {
+	reporter = differ()
+	reporter.pipe(process.stderr)
+}
+
+const report = ({stations, edges, queued}) => {
+	reporter.write([
+		stations + (stations === 1 ? ' node' : ' nodes'),
+		edges + (edges === 1 ? ' edge' : ' edges'),
+		queued + ' queued'
+	].join(', ') + (clearReports ? '' : '\n'))
+}
+
+walk(startId, nodes, edges, report, (err) => {
 	nodes.end()
 	edges.end()
 	if (err) showError(err)

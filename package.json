@@ -27,6 +27,7 @@
 		"node": ">=6"
 	},
 	"dependencies": {
+		"ansi-diff-stream": "^1.2.0",
 		"discover-db-stations": "^0.1.0",
 		"minimist": "^1.2.0",
 		"ndjson": "^1.5.0"

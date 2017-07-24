@@ -4,7 +4,7 @@ const walk = require('discover-db-stations')
 
 // todo: filterStations, filterLines, projection
 
-const createWalker = (startId, nodes, edges, cb) => {
+const createWalker = (startId, nodes, edges, report, cb) => {
 	const s = walk(startId)
 
 	const onNode = (node) => {
@@ -29,6 +29,7 @@ const createWalker = (startId, nodes, edges, cb) => {
 
 	s.once('error', cb)
 	s.once('end', cb)
+	s.on('stats', report)
 	s.on('data', onNode)
 	s.on('edge', onEdge)
 }
