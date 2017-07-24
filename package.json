@@ -27,5 +27,7 @@
 		"node": ">=6"
 	},
 	"dependencies": {
+		"minimist": "^1.2.0",
+		"ndjson": "^1.5.0"
 	}
 }

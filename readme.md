@@ -19,8 +19,13 @@ npx generate-db-graph <station-id>
 ## Usage
 
 ```
-todo
+Usage:
+    generate-db-graph <station-id>
+Examples:
+    generate-db-graph 8011102 # start at Berlin Gesundbrunnen
 ```
+
+This tool generates data in the [JSON Graph Format](https://github.com/jsongraph/json-graph-specification/blob/master/README.rst#json-graph-specification). Note that instead of storing all nodes and edges in one JSON file, **it will create `nodes.ndjson` and `edges.ndjson`. These are [ndjson](http://ndjson.org)-encoded lists of all nodes and edges**, respectively.
 
 
 ## Contributing
